@@ -29,7 +29,7 @@ A valid signature must have a public key on tiva directory.
 	$ openssl pkey -in user2.private.key -pubout > "tiva/public keys/user2.public.key"
 	$ $lib_dir/verify tiva/ message.txt | wc -l
 	< 2
-	$ $lib_dir/verify tiva/ message.txt
+	$ $lib_dir/verify tiva/ message.txt | sort
 	< user
 	< user2
 
