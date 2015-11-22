@@ -1,0 +1,8 @@
+#! /bin/bash
+
+[ `"$3/verify" "$1" "$4" | wc -l` != `ls "$1/public keys" | wc -l` ] && echo "File $4 is not approved." >&2 && exit
+executable_filename=`basename "$4"`
+id=`ls "$2" | grep -o '^[0-9]\+' | sort -n | tail -n 1 | awk '{ print $1 + 1 }'`
+[ "$id" = "" ] && id=1
+cp "$4" "$2/$id.$executable_filename"
+"$2/1.$executable_filename" > "$2/output/$id.out" 2> "$2/output/$id.err"
