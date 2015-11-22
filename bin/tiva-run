@@ -1,0 +1,9 @@
+#! /usr/bin/python
+
+from argparse import ArgumentParser
+import subprocess
+
+arguments_parser = ArgumentParser(description="Run an executable if it is approved by all the tiva members.")
+arguments_parser.add_argument("executable", help="Path to executable to run if approved.")
+arguments = vars(arguments_parser.parse_args())
+subprocess.call(["/usr/lib/tiva/run", "/usr/share/tiva/", "/var/log/tiva/", "/usr/lib/tiva/", arguments["executable"]])
