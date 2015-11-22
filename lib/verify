@@ -3,5 +3,5 @@
 for public_key in "$1"/public\ keys/*
 do
 	username=`basename "$public_key" .public.key`
-	[ -f "$username.signature" ] && openssl dgst -sha1 -verify "$public_key" -signature "$username.signature" "$2" > /dev/null && echo $username
+	[ -f "$2.$username.signature" ] && openssl dgst -sha1 -verify "$public_key" -signature "$2.$username.signature" "$2" > /dev/null && echo $username
 done

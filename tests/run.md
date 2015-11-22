@@ -16,7 +16,7 @@ It is not executed if not approved.
 
 Approve executable and execute it.
 
-	$ openssl dgst -sha1 -sign user.private.key executable.sh > user.signature
+	$ openssl dgst -sha1 -sign user.private.key executable.sh > executable.sh.user.signature
 	$ $lib_dir/run tiva_share/ tiva_log/ $lib_dir/ executable.sh
 	$ cat tiva_log/1.executable.sh
 	< echo 'output'

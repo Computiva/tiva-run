@@ -16,14 +16,14 @@ Before the user sign the message, the script will output nothing.
 
 After the signature, the script will output the username.
 
-	$ openssl dgst -sha1 -sign user.private.key message.txt > user.signature
+	$ openssl dgst -sha1 -sign user.private.key message.txt > message.txt.user.signature
 	$ $lib_dir/verify tiva/ message.txt
 	< user
 
 A valid signature must have a public key on tiva directory.
 
 	$ openssl genrsa > user2.private.key 2> /dev/null
-	$ openssl dgst -sha1 -sign user2.private.key message.txt > user2.signature
+	$ openssl dgst -sha1 -sign user2.private.key message.txt > message.txt.user2.signature
 	$ $lib_dir/verify tiva/ message.txt | wc -l
 	< 1
 	$ openssl pkey -in user2.private.key -pubout > "tiva/public keys/user2.public.key"
